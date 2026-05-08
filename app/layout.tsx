@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, JetBrains_Mono, Merriweather } from "next/font/googl
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import { OpenPanelComponent } from "@openpanel/nextjs";
 
 const merriweatherHeading = Merriweather({subsets:['latin'],variable:'--font-heading'});
 
@@ -27,6 +28,15 @@ export default function RootLayout({
       <body>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
+       <OpenPanelComponent
+        clientId="444418ad-9ec7-443c-86b6-c9d294ccc426"
+        apiUrl="https://op.kapish.dev/api"
+        trackScreenViews={true}
+        trackAttributes={true}
+        trackOutgoingLinks={true}
+        // If you have a user id, you can pass it here to identify the user
+        // profileId={'123'}
+      />
     </html>
   )
 }
