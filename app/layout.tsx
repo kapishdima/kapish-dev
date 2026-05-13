@@ -3,13 +3,10 @@ import Script from "next/script";
 
 import "./globals.css";
 import { OpenPanelComponent } from "@openpanel/nextjs";
-import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
-const fontSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -23,14 +20,21 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      className={cn("antialiased", fontSans.variable, fontMono.variable)}
+      className={cn(
+        "main-container antialiased",
+        fontMono.variable,
+        "font-sans",
+        geist.variable
+      )}
       lang="en"
       suppressHydrationWarning
     >
-      <body className="font-sans">
-        <ThemeProvider>{children}</ThemeProvider>
-        <Script src="https://ui.sh/ui-picker.js" />
-      </body>
+      <TooltipProvider>
+        <body className="font-sans">
+          {children}
+          <Script src="https://ui.sh/ui-picker.js" />
+        </body>
+      </TooltipProvider>
       <OpenPanelComponent
         apiUrl="https://op.kapish.dev/api"
         clientId="444418ad-9ec7-443c-86b6-c9d294ccc426"
