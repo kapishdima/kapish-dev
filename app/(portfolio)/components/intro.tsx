@@ -1,6 +1,15 @@
 "use client";
 
+import {
+  DiscordIcon,
+  GithubIcon,
+  Link03Icon,
+  Location01Icon,
+  Mail01Icon,
+  NewTwitterIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon, type HugeiconsIconProps } from "@hugeicons/react";
+import { contacts } from "@/lib/config/portfolio";
 
 export const IntroItem = ({
   icon,
@@ -23,5 +32,40 @@ export const IntroItem = ({
     <a className="link text-sm" href={href} rel="noopener" target="_blank">
       {text}
     </a>
+  </div>
+);
+
+export const IntroGrid: React.FC = () => (
+  <div className="mt-5 mb-10 grid grid-cols-3 gap-2">
+    <IntroItem
+      href={contacts.location}
+      icon={Location01Icon}
+      text="Ukraine, Odessa"
+    />
+    <IntroItem
+      href={`mailto:${contacts.email}`}
+      icon={Mail01Icon}
+      text={contacts.email}
+    />
+    <IntroItem
+      href={contacts.website}
+      icon={Link03Icon}
+      text={contacts.website}
+    />
+    <IntroItem
+      href={contacts.twitter}
+      icon={NewTwitterIcon}
+      text="@kapish_dima"
+    />
+    <IntroItem
+      href={contacts.github}
+      icon={GithubIcon}
+      text="github.com/kapishdima"
+    />
+    <IntroItem
+      href={contacts.discord}
+      icon={DiscordIcon}
+      text="discord.com/kapishdima"
+    />
   </div>
 );

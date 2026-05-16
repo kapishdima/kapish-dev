@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 
 import "./globals.css";
 import { OpenPanelComponent } from "@openpanel/nextjs";
+import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       className={cn(
-        "main-container antialiased",
+        "antialiased",
         fontMono.variable,
         "font-sans",
         geist.variable
@@ -29,12 +29,13 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
     >
-      <TooltipProvider>
-        <body className="font-sans">
-          {children}
-          <Script src="https://ui.sh/ui-picker.js" />
-        </body>
-      </TooltipProvider>
+      <body className="font-sans">
+        <ThemeProvider>
+          <TooltipProvider>
+            <div className="main-container">{children}</div>
+          </TooltipProvider>
+        </ThemeProvider>
+      </body>
       <OpenPanelComponent
         apiUrl="https://op.kapish.dev/api"
         clientId="444418ad-9ec7-443c-86b6-c9d294ccc426"

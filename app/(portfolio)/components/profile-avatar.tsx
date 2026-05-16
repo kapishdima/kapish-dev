@@ -1,7 +1,7 @@
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 export const ProfileAvatar = () => (
-  <div className="flex items-center gap-x-4 pt-4">
+  <div className="flex items-center gap-x-4">
     <Avatar className="size-9">
       <AvatarImage src="https://pbs.twimg.com/profile_images/2028105659359674368/VrsS1zcJ_400x400.jpg" />
     </Avatar>
