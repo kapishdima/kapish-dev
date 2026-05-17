@@ -2,6 +2,7 @@ import { About } from "@/app/(portfolio)/components/about";
 import { Footer } from "@/app/(portfolio)/components/footer";
 import { GithubGraph } from "@/app/(portfolio)/components/github-graph";
 import { IntroGrid } from "@/app/(portfolio)/components/intro";
+import { OpenSource } from "@/app/(portfolio)/components/open-source";
 import { ProfileAvatar } from "@/app/(portfolio)/components/profile-avatar";
 import { Projects } from "@/app/(portfolio)/components/projects";
 import { TechStack } from "@/app/(portfolio)/components/tech-stack";
@@ -30,6 +31,9 @@ export default function Page() {
         </div>
         <div className="mt-12">
           <Projects />
+        </div>
+        <div className="mt-10">
+          <OpenSource />
         </div>
         <div className="mt-10">
           <Testimonials />

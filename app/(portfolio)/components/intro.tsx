@@ -8,7 +8,7 @@ import { XIcon } from "@/components/ui/svgs/x";
 import { contacts } from "@/lib/config/portfolio";
 
 export const IntroGrid: React.FC = () => (
-  <div className="flex items-center">
+  <div className="flex flex-wrap items-center">
     <Button asChild variant="secondary">
       <a href={contacts.twitterDM} rel="noopener" target="_blank">
         <XIcon />

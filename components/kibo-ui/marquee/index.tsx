@@ -49,6 +49,21 @@ export const MarqueeFade = ({
   />
 );
 
+export type MarqueeFadeBottomProps = HTMLAttributes<HTMLDivElement>;
+
+export const MarqueeFadeBottom = ({
+  className,
+  ...props
+}: MarqueeFadeBottomProps) => (
+  <div
+    className={cn(
+      "pointer-events-none absolute right-0 bottom-0 left-0 z-10 h-24 bg-gradient-to-t from-background to-transparent",
+      className
+    )}
+    {...props}
+  />
+);
+
 export type MarqueeItemProps = HTMLAttributes<HTMLDivElement>;
 
 export const MarqueeItem = ({ className, ...props }: MarqueeItemProps) => (
