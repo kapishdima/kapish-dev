@@ -7,9 +7,6 @@ import {
   ContributionGraph,
   ContributionGraphBlock,
   ContributionGraphCalendar,
-  ContributionGraphFooter,
-  ContributionGraphLegend,
-  ContributionGraphTotalCount,
 } from "@/components/contribution-graph";
 import { Spinner } from "@/components/ui/spinner";
 import {
@@ -21,11 +18,9 @@ import { cn } from "@/lib/utils";
 
 export function GitHubContributions({
   contributions,
-  githubProfileUrl,
   className,
 }: {
   contributions: Promise<Activity[]>;
-  githubProfileUrl: string;
   className?: string;
 }) {
   const data = use(contributions);
@@ -64,27 +59,6 @@ export function GitHubContributions({
           </Tooltip>
         )}
       </ContributionGraphCalendar>
-
-      <ContributionGraphFooter className="px-2">
-        <ContributionGraphTotalCount>
-          {({ totalCount, year }) => (
-            <div className="text-muted-foreground">
-              {totalCount.toLocaleString("en")} contributions in {year} on{" "}
-              <a
-                className="link-underline text-foreground"
-                href={githubProfileUrl}
-                rel="noopener"
-                target="_blank"
-              >
-                GitHub
-              </a>
-              .
-            </div>
-          )}
-        </ContributionGraphTotalCount>
-
-        <ContributionGraphLegend />
-      </ContributionGraphFooter>
     </ContributionGraph>
   );
 }

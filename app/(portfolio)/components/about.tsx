@@ -1,6 +1,7 @@
 export const About: React.FC = () => (
   <p className="text-balance text-sm">
-    Dima. 25 years old...
+    <span className="rounded-sm bg-muted px-1 py-0.5 font-mono">Dima</span> 25
+    years old...
     <br />
     <br /> At 14, I became interested in web design. I honestly don’t even
     remember how it happened, but it did. I wanted it so badly that I literally
@@ -8,9 +9,10 @@ export const About: React.FC = () => (
     in 2013. I completed it
     <br />
     <br />
-    After that, I started programming - C++, Java, PHP and only later
-    JavaScript. I enrolled in college and even taught some of the professors
-    there :DD
+    After that, I started programming -{" "}
+    <span className="font-mono">C++,Java,PHP</span> and only later{" "}
+    <span className="font-mono">JavaScript</span>. I enrolled in college and
+    even taught some of the professors there :DD
     <br />
     <br />
     And now I’ve been working at an agency for more than 6 years. During that

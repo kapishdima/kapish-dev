@@ -1,71 +1,49 @@
-"use client";
-
-import {
-  DiscordIcon,
-  GithubIcon,
-  Link03Icon,
-  Location01Icon,
-  Mail01Icon,
-  NewTwitterIcon,
-} from "@hugeicons/core-free-icons";
-import { HugeiconsIcon, type HugeiconsIconProps } from "@hugeicons/react";
+import { Mail01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Button } from "@/components/ui/button";
+import { Discord } from "@/components/ui/svgs/discord";
+import { Github } from "@/components/ui/svgs/github";
+import { Telegram } from "@/components/ui/svgs/telegram";
+import { XIcon } from "@/components/ui/svgs/x";
 import { contacts } from "@/lib/config/portfolio";
 
-export const IntroItem = ({
-  icon,
-  text,
-  href,
-}: {
-  icon: HugeiconsIconProps["icon"];
-  text: string;
-  href: string;
-}) => (
-  <div className="flex items-center gap-x-3">
-    <div className="flex items-center justify-center rounded-sm border border-gray-200 bg-gray-100 p-1.5 text-gray-900">
-      <HugeiconsIcon
-        color="currentColor"
-        icon={icon}
-        size={12}
-        strokeWidth={1.5}
-      />
-    </div>
-    <a className="link text-sm" href={href} rel="noopener" target="_blank">
-      {text}
-    </a>
-  </div>
-);
-
 export const IntroGrid: React.FC = () => (
-  <div className="mt-5 mb-10 grid grid-cols-3 gap-2">
-    <IntroItem
-      href={contacts.location}
-      icon={Location01Icon}
-      text="Ukraine, Odessa"
-    />
-    <IntroItem
-      href={`mailto:${contacts.email}`}
-      icon={Mail01Icon}
-      text={contacts.email}
-    />
-    <IntroItem
-      href={contacts.website}
-      icon={Link03Icon}
-      text={contacts.website}
-    />
-    <IntroItem
-      href={contacts.twitter}
-      icon={NewTwitterIcon}
-      text="@kapish_dima"
-    />
-    <IntroItem
-      href={contacts.github}
-      icon={GithubIcon}
-      text="github.com/kapishdima"
-    />
-    <IntroItem
-      href={contacts.discord}
-      icon={DiscordIcon}
-      text="discord.com/kapishdima"
-    />
+  <div className="flex items-center">
+    <Button asChild variant="secondary">
+      <a href={contacts.twitterDM} rel="noopener" target="_blank">
+        <XIcon />
+        Twitter DM
+      </a>
+    </Button>
+
+    <Button asChild variant="secondary">
+      <a href={contacts.github} rel="noopener" target="_blank">
+        <Github />
+        Github
+      </a>
+    </Button>
+    <Button asChild variant="secondary">
+      <a href={contacts.discord} rel="noopener" target="_blank">
+        <Discord />
+        Discord
+      </a>
+    </Button>
+    <Button asChild variant="secondary">
+      <a href={`mailto:${contacts.email}`}>
+        <HugeiconsIcon
+          color="currentColor"
+          icon={Mail01Icon}
+          size={12}
+          strokeWidth={2}
+        />
+        {contacts.email}
+      </a>
+    </Button>
+    <Button asChild variant="secondary">
+      <a href={contacts.telegram} rel="noopener" target="_blank">
+        <Telegram />
+        Telegram
+      </a>
+    </Button>
   </div>
 );
