@@ -28,35 +28,35 @@ export const sponsorTiers: SponsorTier[] = [
   {
     id: "bronze",
     name: "Bronze",
-    description: "A small thank-you that keeps the lights on.",
+    description: "A small thank-you that keeps the lights on",
     monthlyPrice: 5,
     oneTimePrice: 49,
     perks: ["Name on README"],
     logoSize: 22,
     placeholderSlots: 4,
     links: {
-      monthly: "",
-      oneTime: "",
+      monthly: "https://www.creem.io/payment/prod_47WYLYBCDAnMHVfcunOj2V",
+      oneTime: "https://www.creem.io/payment/prod_26TrZN25ZeXZrsvhZsIQgx",
     },
   },
   {
     id: "silver",
     name: "Silver",
-    description: "For independent makers who want to back the work.",
+    description: "For independent makers who want to back the work",
     monthlyPrice: 19,
     oneTimePrice: 199,
     perks: ["Logo on README", "Monthly progress shoutout"],
     logoSize: 28,
     placeholderSlots: 3,
     links: {
-      monthly: "",
-      oneTime: "",
+      monthly: "https://www.creem.io/payment/prod_kC446LjEQ85KQNaN5jZGg",
+      oneTime: "https://www.creem.io/payment/prod_4NqBYuXznPq6ejo7p1ouCj",
     },
   },
   {
     id: "gold",
     name: "Gold",
-    description: "For companies and power-users. Logo + thanks in the README.",
+    description: "For companies and power-users. Logo + thanks in the README",
     monthlyPrice: 49,
     oneTimePrice: 499,
     perks: [
@@ -67,8 +67,8 @@ export const sponsorTiers: SponsorTier[] = [
     logoSize: 36,
     placeholderSlots: 2,
     links: {
-      monthly: "",
-      oneTime: "",
+      monthly: "https://www.creem.io/payment/prod_58v8QqGfXU1f2VNzCvS8Qo",
+      oneTime: "https://www.creem.io/payment/prod_2PA8ztbNyAhQxmlfMLtjHY",
     },
   },
 ];
