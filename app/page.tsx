@@ -1,4 +1,5 @@
 import { About } from "@/app/(portfolio)/components/about";
+import { Footer } from "@/app/(portfolio)/components/footer";
 import { GithubGraph } from "@/app/(portfolio)/components/github-graph";
 import { IntroGrid } from "@/app/(portfolio)/components/intro";
 import { ProfileAvatar } from "@/app/(portfolio)/components/profile-avatar";
@@ -34,6 +35,7 @@ export default function Page() {
           <Testimonials />
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
