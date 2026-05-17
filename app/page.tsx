@@ -5,6 +5,7 @@ import { IntroGrid } from "@/app/(portfolio)/components/intro";
 import { OpenSource } from "@/app/(portfolio)/components/open-source";
 import { ProfileAvatar } from "@/app/(portfolio)/components/profile-avatar";
 import { Projects } from "@/app/(portfolio)/components/projects";
+import { Sponsors } from "@/app/(portfolio)/components/sponsors";
 import { TechStack } from "@/app/(portfolio)/components/tech-stack";
 import { Testimonials } from "@/app/(portfolio)/components/testimonials";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -37,6 +38,9 @@ export default function Page() {
         </div>
         <div className="mt-10">
           <Testimonials />
+        </div>
+        <div className="mt-10">
+          <Sponsors />
         </div>
       </div>
       <Footer />
