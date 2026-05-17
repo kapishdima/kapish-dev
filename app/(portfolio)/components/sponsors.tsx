@@ -11,7 +11,7 @@ import {
   ItemTitle,
 } from "@/components/ui/item";
 import { Progress } from "@/components/ui/progress";
-import { sponsors, sponsorshipGoal, sponsorTiers } from "@/lib/config/sponsors";
+import { sponsors, sponsorshipGoal } from "@/lib/config/sponsors";
 
 const computePercent = (current: number, goal: number) => {
   if (goal <= 0) {
@@ -20,12 +20,14 @@ const computePercent = (current: number, goal: number) => {
   return Math.min(100, Math.round((current / goal) * 100));
 };
 
+const goldSponsors = sponsors.filter((s) => s.tier === "gold");
+
 export const Sponsors: React.FC = () => {
   const percent = computePercent(
     sponsorshipGoal.currentMrr,
     sponsorshipGoal.goalMrr
   );
-  const hasSponsors = sponsors.length > 0;
+  const hasGoldSponsors = goldSponsors.length > 0;
 
   return (
     <section className="space-y-6">
@@ -34,81 +36,60 @@ export const Sponsors: React.FC = () => {
           <span>
             Working toward the goal of building only open-source projects
           </span>
-          <span className="tabular-nums">
-            ${sponsorshipGoal.currentMrr} / ${sponsorshipGoal.goalMrr} MRR
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="tabular-nums">
+              ${sponsorshipGoal.currentMrr} / ${sponsorshipGoal.goalMrr} MRR
+            </span>
+          </div>
         </div>
         <Progress className="h-1.5" value={percent} />
       </div>
 
-      {hasSponsors ? (
-        <>
-          <div className="space-y-4">
-            {sponsorTiers.map((tier) => {
-              const tierSponsors = sponsors.filter((s) => s.tier === tier.id);
-              if (tierSponsors.length === 0) {
-                return null;
-              }
-              const slotStyle = {
-                width: tier.logoSize,
-                height: tier.logoSize,
-              };
-
-              return (
-                <div
-                  className="grid grid-cols-[56px_1fr] items-center gap-4"
-                  key={tier.id}
-                >
-                  <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
-                    {tier.name}
-                  </span>
-                  <div className="flex flex-wrap items-center gap-3">
-                    {tierSponsors.map((sponsor) => (
-                      <a
-                        aria-label={sponsor.name}
-                        className="inline-flex items-center justify-center rounded-md text-muted-foreground opacity-70 grayscale hover:text-foreground hover:opacity-100 hover:grayscale-0"
-                        href={sponsor.websiteUrl}
-                        key={sponsor.name}
-                        rel="noopener"
-                        style={slotStyle}
-                        target="_blank"
-                        title={sponsor.name}
-                      >
-                        {sponsor.logo}
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-          <div className="flex justify-end">
-            <SponsorDialog />
-          </div>
-        </>
-      ) : (
-        <ItemGroup>
-          <Item variant="muted">
-            <ItemMedia variant="icon">
-              <div
-                aria-hidden="true"
-                className="inline-flex size-9 items-center justify-center rounded-md border border-border/60 border-dashed text-muted-foreground/60"
-              >
-                <IconPlus className="size-3.5" />
-              </div>
-            </ItemMedia>
-            <ItemContent className="gap-0">
-              <ItemTitle>Be the first sponsor</ItemTitle>
-              <ItemDescription>
-                Help keep this work open. Logos appear here once you sponsor.
-              </ItemDescription>
-            </ItemContent>
-            <ItemActions>
-              <SponsorDialog />
-            </ItemActions>
-          </Item>
-        </ItemGroup>
+      {hasGoldSponsors && (
+        <div className="grid grid-cols-3 gap-3">
+          {goldSponsors.map((sponsor) => (
+            <a
+              aria-label={sponsor.name}
+              className="inline-flex aspect-6/2 items-center justify-center rounded-md bg-muted/50 text-muted-foreground opacity-70 grayscale hover:text-foreground hover:opacity-100 hover:grayscale-0"
+              href={sponsor.websiteUrl}
+              key={sponsor.name}
+              rel="noopener"
+              target="_blank"
+              title={sponsor.name}
+            >
+              {/* biome-ignore lint/performance/noImgElement: sponsor logos may load from external CDNs without a Next config entry */}
+              <img
+                alt={sponsor.name}
+                className="max-h-10 w-auto max-w-[60%] object-contain"
+                height={40}
+                src={sponsor.logo}
+                width={120}
+              />
+            </a>
+          ))}
+        </div>
       )}
+      <ItemGroup>
+        <Item variant="muted">
+          <ItemMedia variant="icon">
+            <div
+              aria-hidden="true"
+              className="inline-flex size-9 items-center justify-center rounded-md border border-border/60 border-dashed text-muted-foreground/60"
+            >
+              <IconPlus className="size-3.5" />
+            </div>
+          </ItemMedia>
+          <ItemContent className="gap-0">
+            <ItemTitle>Support my work</ItemTitle>
+            <ItemDescription>
+              Help keep this work open. Logos appear here once you sponsor
+            </ItemDescription>
+          </ItemContent>
+          <ItemActions>
+            <SponsorDialog />
+          </ItemActions>
+        </Item>
+      </ItemGroup>
     </section>
   );
 };

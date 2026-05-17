@@ -1,9 +1,7 @@
-import type React from "react";
-
 export type SponsorTierId = "gold" | "silver" | "bronze";
 
 export interface Sponsor {
-  logo: React.ReactNode;
+  logo: string;
   name: string;
   tier: SponsorTierId;
   websiteUrl: string;
@@ -16,64 +14,64 @@ export interface SponsorTier {
     monthly: string;
     oneTime: string;
   };
-  logoSize: number;
   monthlyPrice: number;
   name: string;
   oneTimePrice: number;
   perks: string[];
-  placeholderSlots: number;
 }
 
 export const sponsorTiers: SponsorTier[] = [
   {
-    id: "bronze",
-    name: "Bronze",
-    description: "A small thank-you that keeps the lights on",
-    monthlyPrice: 5,
-    oneTimePrice: 49,
-    perks: ["Name on README"],
-    logoSize: 22,
-    placeholderSlots: 4,
+    id: "gold",
+    name: "Gold",
+    description: "For companies and power-users",
+    monthlyPrice: 50,
+    oneTimePrice: 50,
+    perks: [
+      "Logo on README and homepage",
+      "Priority support over DM",
+      "Monthly progress shoutout",
+    ],
     links: {
-      monthly: "https://www.creem.io/payment/prod_47WYLYBCDAnMHVfcunOj2V",
-      oneTime: "https://www.creem.io/payment/prod_26TrZN25ZeXZrsvhZsIQgx",
+      monthly: "https://www.creem.io/payment/prod_58v8QqGfXU1f2VNzCvS8Qo",
+      oneTime: "https://www.creem.io/payment/prod_2PA8ztbNyAhQxmlfMLtjHY",
     },
   },
   {
     id: "silver",
     name: "Silver",
     description: "For independent makers who want to back the work",
-    monthlyPrice: 19,
-    oneTimePrice: 199,
+    monthlyPrice: 10,
+    oneTimePrice: 10,
     perks: ["Logo on README", "Monthly progress shoutout"],
-    logoSize: 28,
-    placeholderSlots: 3,
     links: {
       monthly: "https://www.creem.io/payment/prod_kC446LjEQ85KQNaN5jZGg",
       oneTime: "https://www.creem.io/payment/prod_4NqBYuXznPq6ejo7p1ouCj",
     },
   },
   {
-    id: "gold",
-    name: "Gold",
-    description: "For companies and power-users. Logo + thanks in the README",
-    monthlyPrice: 49,
-    oneTimePrice: 499,
-    perks: [
-      "Logo on README and homepage",
-      "Priority support over DM",
-      "Monthly progress shoutout",
-    ],
-    logoSize: 36,
-    placeholderSlots: 2,
+    id: "bronze",
+    name: "Bronze",
+    description: "A small thank-you that keeps the lights on",
+    monthlyPrice: 5,
+    oneTimePrice: 5,
+    perks: ["Name on README"],
     links: {
-      monthly: "https://www.creem.io/payment/prod_58v8QqGfXU1f2VNzCvS8Qo",
-      oneTime: "https://www.creem.io/payment/prod_2PA8ztbNyAhQxmlfMLtjHY",
+      monthly: "https://www.creem.io/payment/prod_47WYLYBCDAnMHVfcunOj2V",
+      oneTime: "https://www.creem.io/payment/prod_26TrZN25ZeXZrsvhZsIQgx",
     },
   },
 ];
 
-export const sponsors: Sponsor[] = [];
+export const sponsors: Sponsor[] = [
+  // {
+  //   name: "SlidesAI",
+  //   logo: "/sponsors/slidesai-logo.svg",
+  //   websiteUrl:
+  //     "https://www.slidesai.io?utm_source=fonttrio&utm_medium=sponsor&utm_campaign=fonttrio_sponsors_page",
+  //   tier: "gold",
+  // },
+];
 
 export const sponsorshipGoal = {
   currentMrr: 0,
