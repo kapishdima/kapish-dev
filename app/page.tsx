@@ -2,6 +2,7 @@ import { About } from "@/app/(portfolio)/components/about";
 import { GithubGraph } from "@/app/(portfolio)/components/github-graph";
 import { IntroGrid } from "@/app/(portfolio)/components/intro";
 import { ProfileAvatar } from "@/app/(portfolio)/components/profile-avatar";
+import { Projects } from "@/app/(portfolio)/components/projects";
 import { TechStack } from "@/app/(portfolio)/components/tech-stack";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -21,10 +22,10 @@ export default function Page() {
       </div>
 
       <IntroGrid />
-
       <TechStack />
-
       <GithubGraph />
+
+      <Projects />
     </main>
   );
 }

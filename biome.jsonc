@@ -7,7 +7,10 @@
   ],
   "linter": {
     "rules": {
-      "a11y": "warn"
+      "a11y": "warn",
+      "suspicious": {
+        "noArrayIndexKey": "warn"
+      }
     }
   }
 }
