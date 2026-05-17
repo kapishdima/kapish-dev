@@ -114,7 +114,6 @@ const RemocnLogo = () => (
 
 const DialectcnLogo = () => (
   <svg
-    class=""
     color="currentColor"
     fill="none"
     height="14"
