@@ -19,8 +19,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { type SponsorTier, sponsorTiers } from "@/lib/config/sponsors";
 import { cn } from "@/lib/utils";
 
@@ -71,8 +80,73 @@ const TierCard: React.FC<{
   );
 };
 
+const CadenceSwitch: React.FC<{
+  cadence: Cadence;
+  onChange: (cadence: Cadence) => void;
+}> = ({ cadence, onChange }) => (
+  <div className="flex items-center justify-end gap-3">
+    <Label
+      className={cn(
+        "cursor-pointer text-sm",
+        cadence === "monthly" ? "text-foreground" : "text-muted-foreground"
+      )}
+      htmlFor="cadence-switch"
+    >
+      Monthly
+    </Label>
+    <Switch
+      checked={cadence === "one-time"}
+      id="cadence-switch"
+      onCheckedChange={(checked) => onChange(checked ? "one-time" : "monthly")}
+    />
+    <Label
+      className={cn(
+        "cursor-pointer text-sm",
+        cadence === "one-time" ? "text-foreground" : "text-muted-foreground"
+      )}
+      htmlFor="cadence-switch"
+    >
+      One-time
+    </Label>
+  </div>
+);
+
+const TierGrid: React.FC<{ cadence: Cadence; className?: string }> = ({
+  cadence,
+  className,
+}) => (
+  <div className={cn("grid grid-cols-1 gap-3 sm:grid-cols-3", className)}>
+    {sponsorTiers.map((tier) => (
+      <TierCard cadence={cadence} key={tier.id} tier={tier} />
+    ))}
+  </div>
+);
+
 export const SponsorDialog: React.FC = () => {
   const [cadence, setCadence] = useState<Cadence>("monthly");
+  const isMobile = useIsMobile();
+
+  if (isMobile) {
+    return (
+      <Drawer>
+        <DrawerTrigger asChild>
+          <Button size="sm">Become a sponsor</Button>
+        </DrawerTrigger>
+        <DrawerContent className="max-h-[90dvh]">
+          <DrawerHeader className="text-left">
+            <DrawerTitle>Become a sponsor</DrawerTitle>
+            <DrawerDescription>
+              Support the work. Pick a tier and a cadence.
+            </DrawerDescription>
+          </DrawerHeader>
+          <div className="flex flex-col gap-4 overflow-y-auto px-4 pb-4">
+            <CadenceSwitch cadence={cadence} onChange={setCadence} />
+            <TierGrid cadence={cadence} />
+          </div>
+        </DrawerContent>
+      </Drawer>
+    );
+  }
 
   return (
     <Dialog>
@@ -87,43 +161,8 @@ export const SponsorDialog: React.FC = () => {
           </DialogDescription>
         </DialogHeader>
 
-        <div className="flex items-center justify-end gap-3">
-          <Label
-            className={cn(
-              "cursor-pointer text-sm",
-              cadence === "monthly"
-                ? "text-foreground"
-                : "text-muted-foreground"
-            )}
-            htmlFor="cadence-switch"
-          >
-            Monthly
-          </Label>
-          <Switch
-            checked={cadence === "one-time"}
-            id="cadence-switch"
-            onCheckedChange={(checked) =>
-              setCadence(checked ? "one-time" : "monthly")
-            }
-          />
-          <Label
-            className={cn(
-              "cursor-pointer text-sm",
-              cadence === "one-time"
-                ? "text-foreground"
-                : "text-muted-foreground"
-            )}
-            htmlFor="cadence-switch"
-          >
-            One-time
-          </Label>
-        </div>
-
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-          {sponsorTiers.map((tier) => (
-            <TierCard cadence={cadence} key={tier.id} tier={tier} />
-          ))}
-        </div>
+        <CadenceSwitch cadence={cadence} onChange={setCadence} />
+        <TierGrid cadence={cadence} />
       </DialogContent>
     </Dialog>
   );
