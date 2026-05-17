@@ -38,7 +38,7 @@ export default function RootLayout({
       </body>
       <OpenPanelComponent
         apiUrl="https://op.kapish.dev/api"
-        clientId="444418ad-9ec7-443c-86b6-c9d294ccc426"
+        clientId={process.env.NEXT_PUBLIC_OPENPANEL_CLIENT_ID ?? ""}
         trackAttributes={true}
         trackOutgoingLinks={true}
         trackScreenViews={true}
