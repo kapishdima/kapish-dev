@@ -9,7 +9,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
 
 export function ThemeToggle() {
@@ -30,16 +29,8 @@ export function ThemeToggle() {
             size="icon-sm"
             variant="ghost"
           >
-            <MoonIcon
-              className={cn("relative hidden after:absolute after:-inset-2", [
-                resolvedTheme === "dark" && "block",
-              ])}
-            />
-            <SunIcon
-              className={cn("relative hidden after:absolute after:-inset-2", [
-                resolvedTheme === "light" && "block",
-              ])}
-            />
+            <MoonIcon className="relative hidden after:absolute after:-inset-2 dark:block" />
+            <SunIcon className="relative block after:absolute after:-inset-2 dark:hidden" />
           </Button>
         }
       />
