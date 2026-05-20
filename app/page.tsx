@@ -35,10 +35,10 @@ export default function Page() {
           <Projects />
         </div>
         <div className="mt-10">
-          <OpenSource />
+          <Infrastructure />
         </div>
         <div className="mt-10">
-          <Infrastructure />
+          <OpenSource />
         </div>
         <div className="mt-10">
           <Testimonials />
