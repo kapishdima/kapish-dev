@@ -1,6 +1,7 @@
 export type SponsorTierId = "gold" | "silver" | "bronze";
 
 export interface Sponsor {
+  className?: string;
   logo: string;
   name: string;
   tier: SponsorTierId;
@@ -64,17 +65,18 @@ export const sponsorTiers: SponsorTier[] = [
 ];
 
 export const sponsors: Sponsor[] = [
-  // {
-  //   name: "SlidesAI",
-  //   logo: "/sponsors/slidesai-logo.svg",
-  //   websiteUrl:
-  //     "https://www.slidesai.io?utm_source=fonttrio&utm_medium=sponsor&utm_campaign=fonttrio_sponsors_page",
-  //   tier: "gold",
-  // },
+  {
+    name: "shadcnblocks",
+    logo: "/sponsors/shadcnblocks.svg",
+    websiteUrl:
+      "https://www.shadcnblocks.com?utm_source=kapish_dev&utm_medium=sponsor&utm_campaign=kapish_dev_sponsors_page",
+    tier: "gold",
+    className: "scale-120",
+  },
 ];
 
 export const sponsorshipGoal = {
-  currentMrr: 0,
+  currentMrr: 300,
   goalMrr: 2000,
   currency: "USD",
 } as const;

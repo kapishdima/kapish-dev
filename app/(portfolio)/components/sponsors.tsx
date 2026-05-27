@@ -50,7 +50,9 @@ export const Sponsors: React.FC = () => {
           {goldSponsors.map((sponsor) => (
             <a
               aria-label={sponsor.name}
-              className="inline-flex aspect-6/2 items-center justify-center rounded-md bg-muted/50 text-muted-foreground opacity-70 grayscale hover:text-foreground hover:opacity-100 hover:grayscale-0"
+              className={
+                "inline-flex aspect-6/2 items-center justify-center rounded-md bg-muted/50 text-muted-foreground opacity-70 grayscale hover:text-foreground hover:opacity-100 hover:grayscale-0"
+              }
               href={sponsor.websiteUrl}
               key={sponsor.name}
               rel="noopener"
@@ -60,7 +62,7 @@ export const Sponsors: React.FC = () => {
               {/* biome-ignore lint/performance/noImgElement: sponsor logos may load from external CDNs without a Next config entry */}
               <img
                 alt={sponsor.name}
-                className="max-h-10 w-auto max-w-[60%] object-contain"
+                className={`max-h-10 w-auto max-w-[60%] object-contain ${sponsor.className || ""}`}
                 height={40}
                 src={sponsor.logo}
                 width={120}
