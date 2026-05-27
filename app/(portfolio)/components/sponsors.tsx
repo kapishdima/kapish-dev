@@ -55,7 +55,7 @@ export const Sponsors: React.FC = () => {
               }
               href={sponsor.websiteUrl}
               key={sponsor.name}
-              rel="noopener"
+              rel="noopener sponsored"
               target="_blank"
               title={sponsor.name}
             >
