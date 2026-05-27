@@ -71,7 +71,7 @@ export const sponsors: Sponsor[] = [
     websiteUrl:
       "https://www.shadcnblocks.com?utm_source=kapish_dev&utm_medium=sponsor&utm_campaign=kapish_dev_sponsors_page",
     tier: "gold",
-    className: "scale-120",
+    className: "scale-120 dark:invert",
   },
 ];
 
