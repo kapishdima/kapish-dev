@@ -1,0 +1,13 @@
+{
+  "active": true,
+  "iteration": 1,
+  "max_iterations": 100,
+  "started_at": "2026-06-09T09:32:32.307Z",
+  "prompt": "/oh-my-claudecode:ralph не делай никаких изменений просто ответь на вопрос. Как можно в @components/contribution-graph.tsx в компоненте ContributionGraphCalendar сделать автоматически скрол к текущему месяцу?",
+  "session_id": "b9e13927-ae4f-45ab-a784-1fe7e5cf9c37",
+  "project_path": "/Users/dev_wandry/projects/opensource/kapish-dev",
+  "linked_ultrawork": true,
+  "awaiting_confirmation": true,
+  "awaiting_confirmation_set_at": "2026-06-09T09:32:32.307Z",
+  "last_checked_at": "2026-06-09T09:32:32.307Z"
+}

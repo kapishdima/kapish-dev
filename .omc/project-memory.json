@@ -1,0 +1,143 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1780997514520,
+  "projectRoot": "/Users/dev_wandry/projects/opensource/kapish-dev",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": ["package.json"]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": ["tsconfig.json"]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "next",
+        "version": "16.1.7",
+        "category": "fullstack"
+      },
+      {
+        "name": "react",
+        "version": "19.2.4",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "19.2.4",
+        "category": "frontend"
+      }
+    ],
+    "packageManager": "npm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "npm run build",
+    "testCommand": null,
+    "lintCommand": "npm run lint",
+    "devCommand": "npm run dev",
+    "scripts": {
+      "dev": "next dev --turbopack",
+      "build": "next build",
+      "start": "next start",
+      "lint": "eslint",
+      "format": "prettier --write \"**/*.{ts,tsx}\"",
+      "typecheck": "tsc --noEmit",
+      "check": "ultracite check",
+      "fix": "ultracite fix",
+      "prepare": "husky"
+    }
+  },
+  "conventions": {
+    "namingStyle": "camelCase",
+    "importStyle": "ES modules",
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": ["app", "components", "lib", "public"],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "app": {
+      "path": "app",
+      "purpose": "Application code",
+      "fileCount": 8,
+      "lastAccessed": 1780997514433,
+      "keyFiles": [
+        "apple-icon.png",
+        "favicon.ico",
+        "globals.css",
+        "icon0.svg",
+        "icon1.png"
+      ]
+    },
+    "components": {
+      "path": "components",
+      "purpose": "UI components",
+      "fileCount": 6,
+      "lastAccessed": 1780997514434,
+      "keyFiles": [
+        "contribution-graph.tsx",
+        "github-contributions.tsx",
+        "testimonial.tsx",
+        "theme-provider.tsx",
+        "theme-toggle.tsx"
+      ]
+    },
+    "hooks": {
+      "path": "hooks",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1780997514455,
+      "keyFiles": ["use-mobile.ts"]
+    },
+    "lib": {
+      "path": "lib",
+      "purpose": "Library code",
+      "fileCount": 2,
+      "lastAccessed": 1780997514457,
+      "keyFiles": ["utils.ts"]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 4,
+      "lastAccessed": 1780997514459,
+      "keyFiles": [
+        "hero.png",
+        "web-app-manifest-192x192.png",
+        "web-app-manifest-512x512.png"
+      ]
+    },
+    "lib/config": {
+      "path": "lib/config",
+      "purpose": "Configuration files",
+      "fileCount": 6,
+      "lastAccessed": 1780997514481,
+      "keyFiles": ["infrastructure.tsx", "portfolio.ts", "projects.tsx"]
+    },
+    "lib/data": {
+      "path": "lib/data",
+      "purpose": "Data files",
+      "fileCount": 3,
+      "lastAccessed": 1780997514481,
+      "keyFiles": [
+        "get-cached-contributions.ts",
+        "get-cached-open-prs.ts",
+        "get-gh-stars.ts"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}
