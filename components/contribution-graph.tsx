@@ -19,7 +19,9 @@ import {
   type HTMLAttributes,
   type ReactNode,
   useContext,
+  useEffect,
   useMemo,
+  useRef,
 } from "react";
 
 import { cn } from "@/lib/utils";
@@ -183,6 +185,11 @@ const groupByWeeks = (
     );
 };
 
+const getShortMonthName = (date: string): string =>
+  new Date(date).toLocaleString("en-US", {
+    month: "short",
+  });
+
 const getMonthLabels = (
   weeks: Week[],
   monthNames: string[] = DEFAULT_MONTH_LABELS
@@ -200,9 +207,7 @@ const getMonthLabels = (
       const month = monthNames[getMonth(parseISO(firstActivity.date))];
 
       if (!month) {
-        const monthName = new Date(firstActivity.date).toLocaleString("en-US", {
-          month: "short",
-        });
+        const monthName = getShortMonthName(firstActivity.date);
         throw new Error(
           `Unexpected error: undefined month label for ${monthName}.`
         );
@@ -372,15 +377,29 @@ export const ContributionGraphCalendar = ({
 }: ContributionGraphCalendarProps) => {
   const { weeks, width, height, blockSize, blockMargin, labels } =
     useContributionGraph();
+  const container = useRef<HTMLDivElement | null>(null);
 
   const monthLabels = useMemo(
     () => getMonthLabels(weeks, labels.months),
     [weeks, labels.months]
   );
 
+  useEffect(() => {
+    if (!container?.current) {
+      return;
+    }
+
+    const lastMonth = monthLabels.at(-1);
+
+    const x = (blockSize + blockMargin) * lastMonth!.weekIndex;
+
+    container.current.scrollTo({ left: x, behavior: "smooth" });
+  }, [blockMargin, blockSize, monthLabels.at]);
+
   return (
     <div
       className={cn("max-w-full overflow-x-auto overflow-y-hidden", className)}
+      ref={container}
       {...props}
     >
       <svg
